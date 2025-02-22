@@ -1,30 +1,43 @@
 #include "raylib.h"
-#define SCREEN_WIDTH 650
-#define SCREEN_HEIGHT 450
 
-int main() {
-    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Slime Pet 2");
+#include "resource_dir.h"	// utility header for SearchAndSetResourceDir
 
-    Texture2D background = LoadTexture("..\\resources\\background.png");
-    Texture2D slime = LoadTexture("..\\resources\\slime.png");
+int main ()
+{
+	SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI);
 
-    SetTargetFPS(60);
+	InitWindow(1280, 800, "Slime Pet 2");
 
-    while(!WindowShouldClose()) {
+	// Utility function from resource_dir.h to find the resources folder and set it as the current working directory so we can load from it
+	SearchAndSetResourceDir("resources");
 
-        BeginDrawing();
-        
-        ClearBackground(WHITE);
+	// Load a texture from the resources directory
+	Texture wabbit = LoadTexture("slime.png");
+	
+	// game loop
+	while (!WindowShouldClose())		// run the loop untill the user presses ESCAPE or presses the Close button on the window
+	{
+		// drawing
+		BeginDrawing();
 
-        DrawTextureEx(background, (Vector2){ 0,0 }, 0.0f, 1.25f, WHITE);
-        DrawTextureEx(slime, (Vector2){ 225,260 }, 0.0f, 0.30f, WHITE);
+		// Setup the back buffer for drawing (clear color and depth buffers)
+		ClearBackground(BLACK);
 
-        EndDrawing();
-    }
+		// draw some text using the default font
+		DrawText("Hello Raylib", 200,200,20,WHITE);
 
-    UnloadTexture(background);
+		// draw our texture to the screen
+		DrawTexture(wabbit, 400, 200, WHITE);
+		
+		// end the frame and get ready for the next one  (display frame, poll input, etc...)
+		EndDrawing();
+	}
 
-    CloseWindow();
+	// cleanup
+	// unload our texture so it can be cleaned up
+	UnloadTexture(wabbit);
 
-    return 0;
+	// destroy the window and cleanup the OpenGL context
+	CloseWindow();
+	return 0;
 }
