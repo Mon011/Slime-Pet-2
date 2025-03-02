@@ -1,17 +1,19 @@
-#include "System.hpp"
-#include "../components/State.hpp"
+#include "SceneSystem.hpp"
 
+void SceneSystem::Load()
+{
+    scenes.push_back(std::make_unique<MenuScene>());
 
-
-class SceneSystem : System {
-public:
-    void Load() override {}
-
-    void Update() override {
-          
-    
-
-
+    for (auto &scene : scenes)
+    {
+        scene->Load();
     }
-};
+}
 
+void SceneSystem::Update()
+{
+    for (auto &scene : scenes)
+    {
+        scene->Render();
+    }
+}
