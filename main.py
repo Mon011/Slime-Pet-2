@@ -10,13 +10,9 @@ def main():
         system.load()
 
     while not window_should_close():
-        begin_drawing()
-        clear_background(WHITE)
-
         for system in systems:
             system.update()
 
-        end_drawing()
 
     close_window()
 
