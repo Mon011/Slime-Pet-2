@@ -2,4 +2,5 @@ from enum import Enum
 
 class GameState(Enum):
     MENU = 1
-    PROFILE = 2
+    CREDITS = 2
+    PROFILE = 3
