@@ -1,4 +1,4 @@
-from raylibpy import *
+from pyray import *
 
 def calculate_font_size(font: Font, text: str, rectangle: Rectangle, spacing: float, text_scale: int = 2):
     font_size = rectangle.height

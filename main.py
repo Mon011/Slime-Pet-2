@@ -1,10 +1,11 @@
-from raylibpy import *
+from pyray import *
 from systems import * 
 from components import *
 from config import *
 
 def main():
     init_window(SCREEN_WIDTH, SCREEN_HEIGHT, "Slime Pet 2")
+    set_target_fps(TARGET_FPS)
     ui_system = UISystem()
     systems = [ui_system]
     for system in systems:

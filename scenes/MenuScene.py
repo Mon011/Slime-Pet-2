@@ -1,4 +1,4 @@
-from raylibpy import *
+from pyray import *
 from .Scene import Scene
 from config import *
 from components import draw_button, singleton, GameState
