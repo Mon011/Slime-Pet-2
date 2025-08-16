@@ -18,3 +18,6 @@ def draw_button(rectangle: Rectangle, line_thick: int, rect_fill_color: Color, r
     text_pos_x = int(rectangle.x + (rectangle.width - text_size.x) / 2 - line_thick)
     text_pos_y = int(rectangle.y + (rectangle.height - text_size.y ) / 2)
     draw_text(text, text_pos_x, text_pos_y, int(font_size), BLACK)
+
+def draw_button(texture: Texture, posX: int, posY: int):
+    draw_texture(texture, posX, posY, WHITE)
