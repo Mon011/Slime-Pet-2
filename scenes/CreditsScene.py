@@ -30,4 +30,10 @@ class CreditsScene(Scene):
         clear_background(WHITE)
         draw_texture_ex(self.background, [0, 0], 0, 1, WHITE)
         draw_texture_ex(self.banner, [SCREEN_WIDTH / 2 - self.banner.width * self.BANNER_SCALE / 2, 0], 0, self.BANNER_SCALE, WHITE)
+        text = "PRODUCTION:\nMon011 PROGRAMMING\nJanDomanMI PROGRAMMING\nmxdevPL DESIGN\nKlecekman DESIGN"
+        font_size = 35
+        text_width = measure_text(text, font_size)
+        x = (get_screen_width() - text_width ) // 2
+        y = (get_screen_height() - font_size) // 2
+        draw_text(text,x,y-50,font_size,BLACK)
         end_drawing()
