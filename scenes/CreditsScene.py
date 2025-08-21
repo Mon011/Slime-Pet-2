@@ -21,7 +21,6 @@ class CreditsScene(Scene):
         self.background = load_texture_from_image(self.background_image)
         self.banner_image = load_image("assets/banner.png")
         self.banner = load_texture_from_image(self.banner_image)
-        self.exit_button = Rectangle(SCREEN_WIDTH / 2 - self.BUTTON_WIDTH / 2, SCREEN_HEIGHT / 2 + self.BUTTON_HEIGHT * 2 + self.BUTTON_MARGIN * 2, self.BUTTON_WIDTH, self.BUTTON_HEIGHT)
         self.back_button = Rectangle(SCREEN_WIDTH / 2 - self.BUTTON_WIDTH / 2, SCREEN_HEIGHT / 2 + self.BUTTON_HEIGHT * 2 + self.BUTTON_MARGIN * 2, self.BUTTON_WIDTH, self.BUTTON_HEIGHT)
 
         unload_image(self.background_image)
