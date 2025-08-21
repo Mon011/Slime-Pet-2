@@ -13,7 +13,6 @@ class CreditsScene(Scene):
     background: Texture2D
     banner_image: Image
     banner: Texture2D
-    exit_button: Rectangle
     back_button: Rectangle
 
     def load(self):
