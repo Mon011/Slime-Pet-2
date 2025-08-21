@@ -16,6 +16,7 @@ class MenuScene(Scene):
     play_button: Rectangle
     credits_button: Rectangle
     exit_button: Rectangle
+    
 
     def load(self):
         self.background_image = load_image("assets/background.png")
@@ -25,7 +26,6 @@ class MenuScene(Scene):
         self.play_button = Rectangle(SCREEN_WIDTH / 2 - self.BUTTON_WIDTH / 2, SCREEN_HEIGHT / 2, self.BUTTON_WIDTH, self.BUTTON_HEIGHT)
         self.credits_button = Rectangle(SCREEN_WIDTH / 2 - self.BUTTON_WIDTH / 2, SCREEN_HEIGHT / 2 + self.BUTTON_HEIGHT + self.BUTTON_MARGIN, self.BUTTON_WIDTH, self.BUTTON_HEIGHT)
         self.exit_button = Rectangle(SCREEN_WIDTH / 2 - self.BUTTON_WIDTH / 2, SCREEN_HEIGHT / 2 + self.BUTTON_HEIGHT * 2 + self.BUTTON_MARGIN * 2, self.BUTTON_WIDTH, self.BUTTON_HEIGHT)
-
         unload_image(self.background_image)
         unload_image(self.banner_image)
 
