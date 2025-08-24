@@ -38,7 +38,7 @@ class CreditsScene(Scene):
         draw_text(text,x,y-50,font_size,BLACK)
         mouse_pos = get_mouse_position()
         draw_button_rect(self.back_button, 4, GRAY, BLACK, "Back", get_font_default())
-        if check_collision_point_rec(mouse_pos, self.back_button) and is_mouse_button_pressed(0):
+        if check_collision_point_rec(mouse_pos, self.back_button) and is_mouse_button_released(0):
             singleton.state = GameState.MENU
         
              
