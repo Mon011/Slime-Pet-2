@@ -112,6 +112,7 @@ class MenuScene(Scene):
 
         if check_collision_point_rec(mouse_pos, self.play_button_bounds):
             if(is_mouse_button_released(0)):
+                singleton.state = GameState.INTRODUCTION
                 pass
             elif(is_mouse_button_down(0)):
                 self.play_button_state = 2
