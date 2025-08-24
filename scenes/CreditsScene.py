@@ -1,7 +1,7 @@
 from pyray import *
 from .Scene import Scene
 from config import *
-from components import draw_button, singleton, GameState
+from components import draw_button_rect, singleton, GameState
 
 class CreditsScene(Scene):
     BANNER_SCALE = 0.8
@@ -37,7 +37,7 @@ class CreditsScene(Scene):
         y = (get_screen_height() - font_size) // 2
         draw_text(text,x,y-50,font_size,BLACK)
         mouse_pos = get_mouse_position()
-        draw_button(self.back_button, 4, GRAY, BLACK, "Back", get_font_default())
+        draw_button_rect(self.back_button, 4, GRAY, BLACK, "Back", get_font_default())
         if check_collision_point_rec(mouse_pos, self.back_button) and is_mouse_button_pressed(0):
             singleton.state = GameState.MENU
         
