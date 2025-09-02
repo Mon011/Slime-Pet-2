@@ -2,6 +2,7 @@ from pyray import *
 from .Scene import Scene
 from config import *
 from components import draw_button_rect, singleton, GameState
+from pathlib import Path
 
 class CreditsScene(Scene):
     BANNER_SCALE = 0.8
@@ -16,9 +17,9 @@ class CreditsScene(Scene):
     back_button: Rectangle
 
     def load(self):
-        self.background_image = load_image("assets/background.png")
+        self.background_image = load_image(str(Path("assets/background.png")))
         self.background = load_texture_from_image(self.background_image)
-        self.banner_image = load_image("assets/banner.png")
+        self.banner_image = load_image(str(Path("assets/banner.png")))
         self.banner = load_texture_from_image(self.banner_image)
         self.back_button = Rectangle(SCREEN_WIDTH / 2 - self.BUTTON_WIDTH / 2, SCREEN_HEIGHT / 2 + self.BUTTON_HEIGHT * 2 + self.BUTTON_MARGIN * 2, self.BUTTON_WIDTH, self.BUTTON_HEIGHT)
 

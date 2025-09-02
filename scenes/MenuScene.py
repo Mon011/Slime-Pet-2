@@ -2,6 +2,7 @@ from pyray import *
 from .Scene import Scene
 from config import *
 from components import draw_button, singleton, GameState
+from pathlib import Path
 
 class MenuScene(Scene):
     BANNER_SCALE = 0.8
@@ -37,26 +38,26 @@ class MenuScene(Scene):
     exit_button_pressed: Texture2D
 
     def load(self):
-        self.background_image = load_image("assets/background.png")
+        self.background_image = load_image(str(Path("assets/background.png")))
         self.background = load_texture_from_image(self.background_image)
-        self.banner_image = load_image("assets/banner.png")
+        self.banner_image = load_image(str(Path("assets/banner.png")))
         self.banner = load_texture_from_image(self.banner_image)
 
         self.play_button_state = 0
         self.credits_button_state = 0
         self.exit_button_state = 0
 
-        self.play_button_image = load_image("assets/buttons/play/standard.png")
-        self.play_button_on_hover_image = load_image("assets/buttons/play/on-hover.png")
-        self.play_button_pressed_image = load_image("assets/buttons/play/pressed.png")
+        self.play_button_image = load_image(str(Path("assets/buttons/play/standard.png")))
+        self.play_button_on_hover_image = load_image(str(Path("assets/buttons/play/on-hover.png")))
+        self.play_button_pressed_image = load_image(str(Path("assets/buttons/play/pressed.png")))
 
-        self.credits_button_image = load_image("assets/buttons/credits/standard.png")
-        self.credits_button_on_hover_image = load_image("assets/buttons/credits/on-hover.png")
-        self.credits_button_pressed_image = load_image("assets/buttons/credits/pressed.png")
+        self.credits_button_image = load_image(str(Path("assets/buttons/credits/standard.png")))
+        self.credits_button_on_hover_image = load_image(str(Path("assets/buttons/credits/on-hover.png")))
+        self.credits_button_pressed_image = load_image(str(Path("assets/buttons/credits/pressed.png")))
 
-        self.exit_button_image = load_image("assets/buttons/exit/standard.png")
-        self.exit_button_on_hover_image = load_image("assets/buttons/exit/on-hover.png")
-        self.exit_button_pressed_image = load_image("assets/buttons/exit/pressed.png")
+        self.exit_button_image = load_image(str(Path("assets/buttons/exit/standard.png")))
+        self.exit_button_on_hover_image = load_image(str(Path("assets/buttons/exit/on-hover.png")))
+        self.exit_button_pressed_image = load_image(str(Path("assets/buttons/exit/pressed.png")))
         
         self.play_button = load_texture_from_image(self.play_button_image)
         self.play_button_on_hover = load_texture_from_image(self.play_button_on_hover_image)
