@@ -3,15 +3,15 @@ from .Scene import Scene
 from config import *
 from components import draw_button_rect, singleton, GameState
 from entities import slime
+from pathlib import Path
 
 class IntroductionScene(Scene):
     slime_sprite_image: Image
     slime_sprite: Texture2D
-
     next_button_bounds: Rectangle
 
     def load(self):
-        self.slime_sprite_image = load_image("assets/entities/slime/sprite-main.png")
+        self.slime_sprite_image = load_image(str(Path("assets/entities/slime/sprite-main.png")))
         self.slime_sprite = load_texture_from_image(self.slime_sprite_image)
         self.next_button_bounds = Rectangle(int(SCREEN_WIDTH * 0.75), int(SCREEN_WIDTH / 2) - self.slime_sprite.width, 150,60)
         unload_image(self.slime_sprite_image)
