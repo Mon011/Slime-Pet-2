@@ -11,7 +11,7 @@ class IntroductionScene(Scene):
     next_button_bounds: Rectangle
 
     def load(self):
-        self.slime_sprite_image = load_image(str(Path("assets/entities/slime/sprite-main.png")))
+        self.slime_sprite_image = load_image(str(Path("assets/entities/slime/static/sprite-main.png")))
         self.slime_sprite = load_texture_from_image(self.slime_sprite_image)
         self.next_button_bounds = Rectangle(int(SCREEN_WIDTH * 0.75), int(SCREEN_WIDTH / 2) - self.slime_sprite.width, 150,60)
         unload_image(self.slime_sprite_image)

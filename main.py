@@ -2,9 +2,10 @@ from pyray import *
 from systems import * 
 from components import *
 from config import *
+import string_resources as res
 
 def main():
-    init_window(SCREEN_WIDTH, SCREEN_HEIGHT, "Slime Pet 2")
+    init_window(SCREEN_WIDTH, SCREEN_HEIGHT, res.TITLE)
     set_target_fps(TARGET_FPS)
     ui_system = UISystem()
     systems = [ui_system]

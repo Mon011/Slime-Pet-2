@@ -15,6 +15,9 @@ class UISystem(System):
             self._scene = IntroductionScene()
         if(singleton.state == GameState.PARK):
             self._scene = ParkScene()
+        if(singleton.state == GameState.TOWN):
+            self._scene = TownScene()
+            
         self._scene.load()
 
     def update(self):

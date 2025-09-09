@@ -3,7 +3,7 @@ from .Scene import Scene
 from config import *
 from components import draw_button, singleton, GameState
 from pathlib import Path
-
+#TODO: Use draw_multiple_state_button instead of this crap below
 class MenuScene(Scene):
     BANNER_SCALE = 0.8
     BUTTON_MARGIN = 30
@@ -38,7 +38,7 @@ class MenuScene(Scene):
     exit_button_pressed: Texture2D
 
     def load(self):
-        self.background_image = load_image(str(Path("assets/background.png")))
+        self.background_image = load_image(str(Path("assets/backgrounds/main-menu.png")))
         self.background = load_texture_from_image(self.background_image)
         self.banner_image = load_image(str(Path("assets/banner.png")))
         self.banner = load_texture_from_image(self.banner_image)
