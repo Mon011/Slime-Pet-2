@@ -7,8 +7,5 @@ class TownScene(Scene):
         pass
 
     def render(self):
-        begin_drawing()
         clear_background(PURPLE)
-
         draw_text("TOWN SCENE - TODO", 200, 200, 24, BLACK)          
-        end_drawing()

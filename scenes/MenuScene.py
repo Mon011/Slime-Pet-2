@@ -79,8 +79,6 @@ class MenuScene(Scene):
         unload_image(self.banner_image)
 
     def render(self):
-        begin_drawing()
-        clear_background(WHITE)
 
         draw_texture_ex(self.background, [0, 0], 0, 1, WHITE)
         draw_rectangle_rec(self.play_button_bounds, BLANK)
@@ -143,4 +141,3 @@ class MenuScene(Scene):
         else:
             self.exit_button_state = 0
           
-        end_drawing()

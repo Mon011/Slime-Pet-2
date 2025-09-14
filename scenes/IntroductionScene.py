@@ -17,7 +17,6 @@ class IntroductionScene(Scene):
         unload_image(self.slime_sprite_image)
 
     def render(self):
-        begin_drawing()
         clear_background(BLUE)
 
         draw_text("This is your new Slime!", int(SCREEN_WIDTH / 2) - 150, int(SCREEN_HEIGHT / 8), 27, BLACK)
@@ -29,4 +28,3 @@ class IntroductionScene(Scene):
             if(is_mouse_button_released(0)):
                 singleton.state = GameState.PARK
 
-        end_drawing()

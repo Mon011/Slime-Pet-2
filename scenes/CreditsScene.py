@@ -27,7 +27,6 @@ class CreditsScene(Scene):
         unload_image(self.banner_image)
 
     def render(self):
-        begin_drawing()
         clear_background(WHITE)
         draw_texture_ex(self.background, [0, 0], 0, 1, WHITE)
         draw_texture_ex(self.banner, [SCREEN_WIDTH / 2 - self.banner.width * self.BANNER_SCALE / 2, 0], 0, self.BANNER_SCALE, WHITE)
@@ -42,5 +41,3 @@ class CreditsScene(Scene):
         if check_collision_point_rec(mouse_pos, self.back_button) and is_mouse_button_released(0):
             singleton.state = GameState.MENU
         
-             
-        end_drawing()
