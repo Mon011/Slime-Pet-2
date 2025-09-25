@@ -1,7 +1,8 @@
 from pyray import *
 from .Scene import Scene
 from config import *
-from components import draw_button_rect, singleton, GameState
+from components import singleton, GameState
+from ui_components import draw_button_rect
 from entities import slime
 from pathlib import Path
 

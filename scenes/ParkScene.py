@@ -1,7 +1,8 @@
 from pyray import *
 from .Scene import Scene
 from config import *
-from components import draw_multiple_state_button, singleton, GameState
+from components import singleton, GameState
+from ui_components import draw_multiple_state_button
 from pathlib import Path
 
 class ParkScene(Scene):

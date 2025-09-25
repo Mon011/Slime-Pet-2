@@ -1,7 +1,8 @@
 from pyray import *
 from .Scene import Scene
 from config import *
-from components import draw_button, singleton, GameState
+from components import singleton, GameState
+from ui_components import draw_button
 from pathlib import Path
 #TODO: Use draw_multiple_state_button instead of this crap below
 class MenuScene(Scene):

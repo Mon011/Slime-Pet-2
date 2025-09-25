@@ -1,6 +1,7 @@
 from .Direction import Direction
+from .Component import Component
 
-class Position():
+class Position(Component):
     x: float
     y: float
     speed: float
