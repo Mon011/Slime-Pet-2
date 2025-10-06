@@ -1,7 +1,6 @@
 from .System import System
 from components import *
 from scenes import *
-import typing
 
 class UISystem(System):
     _scene: Scene
@@ -22,3 +21,7 @@ class UISystem(System):
 
     def update(self):
         self._scene.render()
+
+    def unload(self):
+        print(type(self._scene))
+        self._scene.unload()
