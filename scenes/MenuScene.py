@@ -25,9 +25,9 @@ class MenuScene(Scene):
     def render(self):
         draw_texture_ex(self.background, [0, 0], 0, 1, WHITE)
         draw_texture_ex(self.banner, [SCREEN_WIDTH / 2 - self.banner.width * self.BANNER_SCALE // 2, 0], 0, self.BANNER_SCALE, WHITE)
-        button.multiple_state_button(self.play_button, SCREEN_WIDTH // 2 - self.play_button.width // 2, SCREEN_HEIGHT // 2, 1, navigate_to_introduction)
-        button.multiple_state_button(self.credits_button, SCREEN_WIDTH // 2 - self.credits_button.width // 2, SCREEN_HEIGHT // 2 + self.credits_button.height // 3 + self.BUTTON_MARGIN, 1, navigate_to_credits)
-        button.multiple_state_button(self.exit_button, SCREEN_WIDTH // 2 - self.exit_button.width // 2, SCREEN_HEIGHT // 2 + self.exit_button.height // 3 * 2 + self.BUTTON_MARGIN * 2, 1, exit)
+        button.multiple_state_button(self.play_button, SCREEN_WIDTH // 2 - self.play_button.width // 2, SCREEN_HEIGHT // 2, Scale.DEFAULT, navigate_to_introduction)
+        button.multiple_state_button(self.credits_button, SCREEN_WIDTH // 2 - self.credits_button.width // 2, SCREEN_HEIGHT // 2 + self.credits_button.height // 3 + self.BUTTON_MARGIN, Scale.DEFAULT, navigate_to_credits)
+        button.multiple_state_button(self.exit_button, SCREEN_WIDTH // 2 - self.exit_button.width // 2, SCREEN_HEIGHT // 2 + self.exit_button.height // 3 * 2 + self.BUTTON_MARGIN * 2, Scale.DEFAULT, exit)
     
     def unload(self):
         unload_texture(self.background)
