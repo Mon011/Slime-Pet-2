@@ -37,7 +37,7 @@ class CreditsScene(Scene):
         x = (get_screen_width() - text_width ) // 2
         y = (get_screen_height() - font_size) // 2
         draw_text(text,x,y-50,font_size,BLACK)
-        button.standard_button(self.back_button, 4, GRAY, BLACK, "Back", navigate_to_menu, get_font_default())
+        button.standard_button(self.back_button, 4, GRAY, BLACK, "Back", get_font_default(), navigate_to_menu)
 
     def unload(self):
         pass 
