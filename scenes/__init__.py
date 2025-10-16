@@ -4,3 +4,6 @@ from .CreditsScene import CreditsScene
 from .IntroductionScene import IntroductionScene
 from .ParkScene import ParkScene
 from .TownScene import TownScene
+from .MapScene import MapScene
+from .ShopScene import ShopScene
+from .PlaygroundScene import PlaygroundScene

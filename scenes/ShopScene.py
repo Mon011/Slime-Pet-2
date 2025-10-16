@@ -6,9 +6,8 @@ from components import singleton, GameState
 import ui_components.buttons as button
 import ui_components.bars as bar
 
-class TownScene(Scene):
+class ShopScene(Scene):
     background: Texture2D
-    park_button: Texture2D
     map_button: Texture2D
     health_bar_logo: Texture2D
     hunger_bar_logo: Texture2D
@@ -16,8 +15,7 @@ class TownScene(Scene):
     main_sprite_texture: Texture2D
 
     def load(self):
-        self.background = load_texture(str(Path("assets/backgrounds/town-scene.png")))
-        self.park_button = load_texture(str(Path("assets/buttons/park-button.png")))
+        self.background = load_texture(str(Path("assets/backgrounds/shop-scene.png")))
         self.map_button = load_texture(str(Path("assets/buttons/map-button.png")))
         self.health_bar_logo = load_texture(str(Path("assets/bar/health_bar_logo.png")))
         self.hunger_bar_logo = load_texture(str(Path("assets/bar/hunger_bar_logo.png")))
@@ -27,7 +25,6 @@ class TownScene(Scene):
     def render(self):
         clear_background(WHITE)
         draw_texture_ex(self.background, [0, 0], 0, Scale.QUADRUPLED, WHITE) #TODO: Change background with proper scaling
-        button.multiple_state_button(self.park_button, int(SCREEN_WIDTH / 10), int(SCREEN_HEIGHT * 0.75), Scale.DOUBLED, navigate_to_park)
         button.multiple_state_button(self.map_button, int(SCREEN_WIDTH * 0.80), int(SCREEN_HEIGHT * 0.75), Scale.DOUBLED, navigate_to_map)
         bar.progress_bar(self.progress_bar_texture, self.health_bar_logo, int(SCREEN_WIDTH * 0.65), int(SCREEN_HEIGHT * 0.05), 100, 100, RED)
         bar.progress_bar(self.progress_bar_texture, self.hunger_bar_logo, int(SCREEN_WIDTH * 0.65), int(SCREEN_HEIGHT * 0.13), 80, 100, RED)
@@ -35,7 +32,6 @@ class TownScene(Scene):
 
     def unload(self):
         unload_texture(self.background)
-        unload_texture(self.park_button)
         unload_texture(self.map_button)
         unload_texture(self.health_bar_logo)
         unload_texture(self.hunger_bar_logo)
@@ -45,9 +41,5 @@ class TownScene(Scene):
     def map_view():
         pass
 
-def navigate_to_park():
-    singleton.state = GameState.PARK
-
 def navigate_to_map():
     singleton.state = GameState.MAP
-    

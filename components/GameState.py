@@ -7,3 +7,6 @@ class GameState(Enum):
     INTRODUCTION = 4
     PARK = 5
     TOWN = 6
+    MAP = 7
+    SHOP = 8
+    PLAYGROUND = 9
