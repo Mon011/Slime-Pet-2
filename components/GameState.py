@@ -6,3 +6,4 @@ class GameState(Enum):
     PROFILE = 3
     INTRODUCTION = 4
     PARK = 5
+    TOWN = 6

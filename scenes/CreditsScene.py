@@ -1,7 +1,8 @@
 from pyray import *
 from .Scene import Scene
 from config import *
-from components import draw_button_rect, singleton, GameState
+from components import singleton, GameState
+import ui_components.buttons as button
 from pathlib import Path
 
 class CreditsScene(Scene):
@@ -17,7 +18,7 @@ class CreditsScene(Scene):
     back_button: Rectangle
 
     def load(self):
-        self.background_image = load_image(str(Path("assets/background.png")))
+        self.background_image = load_image(str(Path("assets/backgrounds/main-menu.png")))
         self.background = load_texture_from_image(self.background_image)
         self.banner_image = load_image(str(Path("assets/banner.png")))
         self.banner = load_texture_from_image(self.banner_image)
@@ -27,7 +28,6 @@ class CreditsScene(Scene):
         unload_image(self.banner_image)
 
     def render(self):
-        begin_drawing()
         clear_background(WHITE)
         draw_texture_ex(self.background, [0, 0], 0, 1, WHITE)
         draw_texture_ex(self.banner, [SCREEN_WIDTH / 2 - self.banner.width * self.BANNER_SCALE / 2, 0], 0, self.BANNER_SCALE, WHITE)
@@ -38,9 +38,10 @@ class CreditsScene(Scene):
         y = (get_screen_height() - font_size) // 2
         draw_text(text,x,y-50,font_size,BLACK)
         mouse_pos = get_mouse_position()
-        draw_button_rect(self.back_button, 4, GRAY, BLACK, "Back", get_font_default())
+        button.standard_button(self.back_button, 4, GRAY, BLACK, "Back", get_font_default())
         if check_collision_point_rec(mouse_pos, self.back_button) and is_mouse_button_released(0):
             singleton.state = GameState.MENU
-        
-             
-        end_drawing()
+
+    def unload(self):
+        pass 
+    

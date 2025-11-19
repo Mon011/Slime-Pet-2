@@ -1,7 +1,6 @@
 from .System import System
 from components import *
 from scenes import *
-import typing
 
 class UISystem(System):
     _scene: Scene
@@ -15,7 +14,14 @@ class UISystem(System):
             self._scene = IntroductionScene()
         if(singleton.state == GameState.PARK):
             self._scene = ParkScene()
+        if(singleton.state == GameState.TOWN):
+            self._scene = TownScene()
+            
         self._scene.load()
 
     def update(self):
         self._scene.render()
+
+    def unload(self):
+        print(type(self._scene))
+        self._scene.unload()

@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-import typing
+
 class System(ABC):
 
     @abstractmethod
@@ -9,3 +9,7 @@ class System(ABC):
     @abstractmethod
     def update(self):
         pass    
+
+    @abstractmethod
+    def unload(self):
+        pass
