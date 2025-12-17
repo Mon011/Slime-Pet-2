@@ -3,6 +3,7 @@ from .Scene import Scene
 from config import *
 from pathlib import Path
 from components import singleton, GameState
+from entities import slime
 import ui_components.buttons as button
 import ui_components.bars as bar
 
@@ -29,8 +30,8 @@ class TownScene(Scene):
         draw_texture_ex(self.background, [0, 0], 0, Scale.QUADRUPLED, WHITE) #TODO: Change background with proper scaling
         button.multiple_state_button(self.park_button, int(SCREEN_WIDTH / 10), int(SCREEN_HEIGHT * 0.75), Scale.DOUBLED, navigate_to_park)
         button.multiple_state_button(self.map_button, int(SCREEN_WIDTH * 0.80), int(SCREEN_HEIGHT * 0.75), Scale.DOUBLED, navigate_to_map)
-        bar.progress_bar(self.progress_bar_texture, self.health_bar_logo, int(SCREEN_WIDTH * 0.65), int(SCREEN_HEIGHT * 0.05), 100, 100, RED)
-        bar.progress_bar(self.progress_bar_texture, self.hunger_bar_logo, int(SCREEN_WIDTH * 0.65), int(SCREEN_HEIGHT * 0.13), 80, 100, RED)
+        bar.progress_bar(self.progress_bar_texture, self.health_bar_logo, int(SCREEN_WIDTH * 0.65), int(SCREEN_HEIGHT * 0.05), slime.healthpoints, 100, RED)
+        bar.progress_bar(self.progress_bar_texture, self.hunger_bar_logo, int(SCREEN_WIDTH * 0.65), int(SCREEN_HEIGHT * 0.13), slime.hunger, 100, RED)
         draw_texture_ex(self.main_sprite_texture, [SCREEN_WIDTH / 2 - self.main_sprite_texture.width * Scale.QUADRUPLED / 2, int(SCREEN_HEIGHT * 0.75)], 0, Scale.QUADRUPLED, WHITE)
 
     def unload(self):
