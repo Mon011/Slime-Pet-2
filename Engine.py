@@ -11,7 +11,7 @@ class Engine:
     def run(self):
         init_window(SCREEN_WIDTH, SCREEN_HEIGHT, res.TITLE)
         set_target_fps(TARGET_FPS)
-        systems = [UISystem(), RenderSystem(), SurvivalSystem()]
+        systems = [UISystem(), RenderSystem(), SurvivalSystem()] 
 
         for system in systems:
             system.load()
