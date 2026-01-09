@@ -14,10 +14,6 @@ class SurvivalSystem(System):
         pass 
 
     def update(self):
-        print("health: ", slime.healthpoints)
-        print("hunger: ", slime.hunger)
-        print("hunger dec:", self.hunger_decrease)
-
         if(slime.hunger > 0):
             if(singleton.state == GameState.PARK or
                singleton.state == GameState.TOWN):
