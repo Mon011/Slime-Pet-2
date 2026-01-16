@@ -15,14 +15,14 @@ class CreditsScene(Scene):
     background: Texture2D
     banner_image: Image
     banner: Texture2D
-    back_button: Rectangle
+    back_button: Texture2D
 
     def load(self):
         self.background_image = load_image(str(Path("assets/backgrounds/main-menu.png")))
         self.background = load_texture_from_image(self.background_image)
         self.banner_image = load_image(str(Path("assets/banner.png")))
         self.banner = load_texture_from_image(self.banner_image)
-        self.back_button = Rectangle(SCREEN_WIDTH / 2 - self.BUTTON_WIDTH / 2, SCREEN_HEIGHT / 2 + self.BUTTON_HEIGHT * 2 + self.BUTTON_MARGIN * 2, self.BUTTON_WIDTH, self.BUTTON_HEIGHT)
+        self.back_button = load_texture(str(Path("assets/buttons/back-button.png")))
 
         unload_image(self.background_image)
         unload_image(self.banner_image)
@@ -37,11 +37,11 @@ class CreditsScene(Scene):
         x = (get_screen_width() - text_width ) // 2
         y = (get_screen_height() - font_size) // 2
         draw_text(text,x,y-50,font_size,BLACK)
-        mouse_pos = get_mouse_position()
-        button.standard_button(self.back_button, 4, GRAY, BLACK, "Back", get_font_default())
-        if check_collision_point_rec(mouse_pos, self.back_button) and is_mouse_button_released(0):
-            singleton.state = GameState.MENU
+        button.multiple_state_button(self.back_button, SCREEN_WIDTH // 2 - self.back_button.width * 2, SCREEN_HEIGHT // 2 + self.back_button.height * 4, Scale.QUADRUPLED, navigate_to_menu)
 
     def unload(self):
-        pass 
+        unload_texture(self.back_button)
+
+def navigate_to_menu():
+    singleton.state = GameState.MENU
     

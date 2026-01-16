@@ -5,6 +5,7 @@ from components import singleton, GameState
 import ui_components.buttons as button
 import ui_components.bars as bar
 from pathlib import Path
+from entities import slime
 
 class ParkScene(Scene):
     background: Texture2D
@@ -24,8 +25,8 @@ class ParkScene(Scene):
     def render(self):
         draw_texture_ex(self.background, [0, 0], 0, 1, WHITE)
         button.multiple_state_button(self.town_button, int(SCREEN_WIDTH * 0.85), int(SCREEN_HEIGHT * 0.75), Scale.DOUBLED, navigate_to_town)
-        bar.progress_bar(self.progress_bar_texture, self.health_bar_logo, int(SCREEN_WIDTH * 0.65), int(SCREEN_HEIGHT * 0.05), 100, 100, RED)
-        bar.progress_bar(self.progress_bar_texture, self.hunger_bar_logo, int(SCREEN_WIDTH * 0.65), int(SCREEN_HEIGHT * 0.13), 80, 100, RED)
+        bar.progress_bar(self.progress_bar_texture, self.health_bar_logo, int(SCREEN_WIDTH * 0.65), int(SCREEN_HEIGHT * 0.05), slime.healthpoints, 100, RED)
+        bar.progress_bar(self.progress_bar_texture, self.hunger_bar_logo, int(SCREEN_WIDTH * 0.65), int(SCREEN_HEIGHT * 0.13), slime.hunger, 100, RED)
         draw_texture_ex(self.main_sprite_texture, [SCREEN_WIDTH / 2 - self.main_sprite_texture.width * Scale.QUADRUPLED / 2, int(SCREEN_HEIGHT * 0.75)], 0, Scale.QUADRUPLED, WHITE)
 
     def unload(self):

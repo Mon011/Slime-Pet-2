@@ -16,6 +16,13 @@ class UISystem(System):
             self._scene = ParkScene()
         if(singleton.state == GameState.TOWN):
             self._scene = TownScene()
+        if(singleton.state == GameState.MAP):
+            self._scene = MapScene()
+        if(singleton.state == GameState.SHOP):
+            self._scene = ShopScene()
+        if(singleton.state == GameState.PLAYGROUND):
+            self._scene = PlaygroundScene()
+
             
         self._scene.load()
 
@@ -23,5 +30,4 @@ class UISystem(System):
         self._scene.render()
 
     def unload(self):
-        print(type(self._scene))
         self._scene.unload()

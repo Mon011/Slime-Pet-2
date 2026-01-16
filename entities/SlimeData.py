@@ -4,16 +4,19 @@ from components import Position
 from pyray import *
 # from pathlib import Path
 import random
-class SlimeInfo:
+
+class SlimeData:
     name: str
     healthpoints: int
     hunger: int
+    coins: int 
     mood: Mood
 
     def __init__(self):
         self.healthpoints = 100
         self.hunger = 100
+        self.coins = 10
         self.mood = Mood(random.randint(1, 3))
-        self.name = "TODO"
+        self.name = "Slimename"
 
-slime = SlimeInfo()
+slime = SlimeData()
