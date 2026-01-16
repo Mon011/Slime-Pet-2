@@ -1,0 +1,2 @@
+class CoinAmountException(Exception):
+    pass 

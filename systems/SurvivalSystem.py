@@ -5,10 +5,8 @@ from entities import slime
 import time
 
 class SurvivalSystem(System):
-    _scene: Scene
-
     last_sync_time: float = time.time()
-    hunger_decrease: int = 0 
+    hunger_increase: int = 0 
 
     def load(self):
         pass 
@@ -18,16 +16,15 @@ class SurvivalSystem(System):
             if(singleton.state == GameState.PARK or
                singleton.state == GameState.TOWN):
                 self.last_sync_time = time.time()
-                if(slime.hunger <= self.hunger_decrease):
+                if(slime.hunger <= self.hunger_increase):
                     slime.hunger = 0
-                elif(self.hunger_decrease > 0):
-                    slime.hunger -= self.hunger_decrease
-                    self.hunger_decrease = 0
-
+                elif(self.hunger_increase > 0):
+                    slime.hunger -= self.hunger_increase
+                    self.hunger_increase = 0
 
             if(singleton.state == GameState.SHOP or 
                 singleton.state == GameState.PLAYGROUND):
-                self.hunger_decrease = int((time.time() - self.last_sync_time) // 1); 
+                self.hunger_increase = int((time.time() - self.last_sync_time) // 1); 
                         
         if(slime.hunger == 0):
            if(time.time() > self.last_sync_time):

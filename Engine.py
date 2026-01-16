@@ -11,7 +11,10 @@ class Engine:
     def run(self):
         init_window(SCREEN_WIDTH, SCREEN_HEIGHT, res.TITLE)
         set_target_fps(TARGET_FPS)
-        systems = [UISystem(), RenderSystem(), SurvivalSystem()] 
+        ui_system = UISystem()
+        systems = [RenderSystem(), SurvivalSystem()] 
+
+        ui_system.load()
 
         for system in systems:
             system.load()
@@ -21,18 +24,20 @@ class Engine:
             previous_state = singleton.state
             
             if previous_state != singleton.state:
-                for system in systems:
-                    system.unload()
+                ui_system.unload()
+            
+            ui_system.update()
             
             for system in systems:
                 system.update()
 
             if previous_state != singleton.state:
-                for system in systems:
-                    system.load()
+                ui_system.load()
                 
             end_drawing()
 
+        for system in systems:
+            system.unload()
         close_window()
 
 engine = Engine()

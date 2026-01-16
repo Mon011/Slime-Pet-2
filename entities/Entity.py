@@ -10,7 +10,7 @@ class Entity:
         self.id = uuid.uuid1() 
         self.components = components
 
-    def get_component(self, type: type):
+    def get_component(self, type: type) -> Component:
         for component in self.components:
             if type == type(component):
                 return component 

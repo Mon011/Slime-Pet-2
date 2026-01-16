@@ -43,9 +43,6 @@ class TownScene(Scene):
         unload_texture(self.progress_bar_texture)
         unload_texture(self.main_sprite_texture)
 
-    def map_view():
-        pass
-
 def navigate_to_park():
     singleton.state = GameState.PARK
 
